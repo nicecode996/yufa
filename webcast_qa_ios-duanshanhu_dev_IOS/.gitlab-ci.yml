@@ -1,0 +1,34 @@
+image: hub.byted.org/tce/toutiao.shoots.ci.executor_base:latest
+
+stages:
+  - upload_case
+
+upload_case:
+  tags:
+  - shared
+  stage: upload_case
+  script:
+  # Print environment info
+  - strings=$(env)
+  - IFS=$' '
+  - sorted=$(sort <<<"${strings[*]}")
+  - for string in $strings; do echo $string; done
+  - unset IFS
+  - $PYTHON --version
+  - $PIP --version
+
+  # Install dependencies
+  - >
+      if [ -f "requirements.txt" ];
+      then
+          $PIP install -i https://shoots-pypi.bytedance.net/simple/ --user -U --upgrade-strategy eager -r requirements.txt
+      else
+          echo "requirements.txt not found"
+      fi
+
+  # Download and run "upload_case.py"
+  - wget http://tosv.byted.org/obj/shoots/upload_case.py
+  - $PYTHON upload_case.py "${app_id}"
+  variables:
+    PYTHON: python3
+    PIP: pip3

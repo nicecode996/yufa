@@ -1,0 +1,15 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="driver.*" />
+          <option value="Case.zaixiantong.unittest_testcase" />
+          <option value="Case.zaixiantong.*" />
+          <option value="抖音.case.douyin_demo.desired_caps" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
