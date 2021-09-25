@@ -1,6 +1,0 @@
-# Basic .gitattributes for a python repo.
-# Fefer: https://github.com/alexkaratarakis/gitattributes
-
-# Source files
-# ============
-* text=auto eol=lf
